@@ -1,7 +1,5 @@
-// src/components/extractTextFromPDF.js
 import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf'; // Import PDF.js for text extraction
 
-// Set the worker source for PDF.js to the local file
 pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs'; // Ensure the path is correct in your public folder
 
 const extractTextFromPDF = (file) => {

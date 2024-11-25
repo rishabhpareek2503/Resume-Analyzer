@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-// Function to analyze the resume text using GPT API
 const analyzeResume = async (resumeText, jobDescription) => {
   try {
-    // Send text and job description to GPT API for analysis
     const gptResponse = await axios.post(
       "https://api.openai.com/v1/chat/completions",
       {
@@ -29,14 +27,11 @@ const analyzeResume = async (resumeText, jobDescription) => {
       }
     );
 
-    // Extract feedback and relevance score from GPT response
     const gptAnalysis = gptResponse.data.choices[0].message.content;
 
-    // Parse score from GPT's response (expecting a structured output)
     const scoreMatch = gptAnalysis.match(/Relevance Score: (\d+)/i);
     const score = scoreMatch ? parseInt(scoreMatch[1], 10) : 50; // Default to 50 if no score is found
 
-    // Return score and feedback
     return { score, feedback: gptAnalysis };
   } catch (error) {
     console.error('Error analyzing resume:', error);

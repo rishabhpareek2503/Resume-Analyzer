@@ -83,7 +83,7 @@ const App = () => {
       const pageHeight = doc.internal.pageSize.height;
       const borderThickness = 1;
 
-      // Outer border (thicker)
+      // Outer border 
       doc.setDrawColor(0);
       doc.setLineWidth(borderThickness);
       doc.rect(margin, margin, pageWidth - 2 * margin, pageHeight - 2 * margin);
@@ -271,7 +271,7 @@ const App = () => {
         )}
 
         {results.length > 0 && !loading && (
-          <section className="mt-8 col-span-1 md:col-span-2">
+          <section className="mt-8 col-span-1 md:col-span-2 text-center">
             <h3 className="text-2xl font-bold  mb-4">Analysis Results</h3>
             {results.map((result, index) => (
               <div key={index} className="mb-6">
